@@ -1,0 +1,68 @@
+a:link {
+  text-decoration: none;
+}
+
+.card-img {
+  height: 300px;
+  width: 300px;
+  align-self: center;
+}
+
+.flex-shrink-0 img {
+  width: 240px;
+  height: 160px;
+  margin-right: 16px;
+  border-radius: 5%;
+}
+
+h5 {
+  font-weight: 600;
+}
+
+h2 {
+  font-weight: 600;
+}
+
+.modal-footer {
+  background-color: #333;
+  color: #efefef;
+  padding: 30px 0;
+  justify-content: center;
+}
+
+.modal-footer a {
+  color: #639bcf;
+}
+
+.modal-footer a:hover {
+  color: #d8e6f3
+}
+
+.carousel-item img {
+  height: 640px;
+  object-fit: cover;
+  object-position: right;
+}
+
+.text-1 {
+  font-size: 45px;
+  text-shadow: 2px 2px #000;
+}
+
+.text-2 {
+  font-size: 40px;
+  text-shadow: 2px 2px #000;
+}
+
+@media (max-width: 1100px) {
+  .text-1 {
+    font-size: 30px;
+  }
+  .text-2 {
+    font-size: 25px;
+  }
+}
+
+.botao-montagem {
+  font-size: 20px;
+}
