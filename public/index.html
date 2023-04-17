@@ -13,7 +13,7 @@
 <body>
   <nav class="navbar navbar-light bg-light navbar-expand-md fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="index.html">
         <img src="" style="height: 50px" alt="Logo do PC Construtor">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu"
@@ -39,7 +39,7 @@
         </div>
 
         <div class="navbar-nav">
-          <a class="nav-link nav-item" href="central.html">Meus PCs</a>
+          <a class="nav-link nav-item" href="central.html">Meus PCs <span class="badge bg-danger rounded-circle translate-middle ms-1">1</span></a>
           <a class="nav-link nav-item" href="login.html"><i class="fa fa-right-to-bracket"></i> Entrar</a>
         </div>
       </div>
@@ -83,6 +83,7 @@
     </a>
   </div>
   <div class="container">
+    <!-- Jumbotron -->
     <div class="p-5 bg-secondary-subtle rounded-3 d-block d-md-none text-center mb-4" style="margin-top: 89px;">
       <h5>Site desenvolvido com a proposta de ajudar a montar o computador perfeito para você</h5>
     </div>
@@ -300,39 +301,37 @@
       <h4 class="mb-4" style="font-weight: 600;">Experimente montar do zero!</h4>
       <a class="btn btn-primary botao-montagem" href="montagem.html">Ir para montagem</a>
     </div>
-</div>
-
-<div class="modal-footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-5 col-lg-4 col-sm-7">
-        <h5>Usuário</h5>
-        <ul class="list-unstyled">
-          <li><a href="central.html">Minha Conta</a></li>
-          <li><a href="conta.html">Meus Dados</a></li>
-        </ul>
-      </div>
-      <div class="col-xl-4 col-lg-4 col-sm-5">
-        <h5>Componentes</h5>
-        <ul class="list-unstyled">
-          <li><a href="componentes.html">Catálogo</a></li>
-          <li><a href="manual.html">Restrições</a></li>
-          <li><a href="montagem.html">Monte seu PC</a></li>
-        </ul>
-      </div>
-
-      <div class="col-xl-3 col-lg-4 col-sm-5" id="contato">
-        <h5>Contato</h5>
-        <ul class="list-unstyled">
-          <li><i class="fas fa-user"></i> Maximilian Harrisson</li>
-          <li><i class="fas fa-phone"></i> (00) 987654321</li>
-          <li><i class="fas fa-envelope"></i><a href="mailto:maximilian@email.com"> maximilian@email.com</a></li>
-        </ul>
-      </div>
   </div>
-</div>
 
+  <div class="modal-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-5 col-lg-4 col-sm-7">
+          <h5>Usuário</h5>
+          <ul class="list-unstyled">
+            <li><a href="central.html">Minha Conta</a></li>
+            <li><a href="conta.html">Meus Dados</a></li>
+          </ul>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-sm-5">
+          <h5>Componentes</h5>
+          <ul class="list-unstyled">
+            <li><a href="componentes.html">Catálogo</a></li>
+            <li><a href="manual.html">Restrições</a></li>
+            <li><a href="montagem.html">Monte seu PC</a></li>
+          </ul>
+        </div>
 
+        <div class="col-xl-3 col-lg-4 col-sm-5" id="contato">
+          <h5>Contato</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-user"></i> Maximilian Harrisson</li>
+            <li><i class="fas fa-phone"></i> (00) 987654321</li>
+            <li><i class="fas fa-envelope"></i><a href="mailto:maximilian@email.com"> maximilian@email.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="../src/js/jquery.js"></script>

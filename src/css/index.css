@@ -39,9 +39,7 @@ h2 {
 }
 
 .carousel-item img {
-  height: 640px;
-  object-fit: cover;
-  object-position: right;
+  height: 350px;
 }
 
 .text-1 {
@@ -65,4 +63,12 @@ h2 {
 
 .botao-montagem {
   font-size: 20px;
+}
+
+.nav-item button {
+  font-size: 30px;
+}
+
+h5.build-price {
+  font-size: 40px;
 }

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Monte seu PC</title>
+  <link href="../src/css/bootstrap.css" rel="stylesheet">
+  <link href="../src/css/all.css" rel="stylesheet">
+  <link href="../src/css/index.css" rel="stylesheet">
+</head>
+
+<body class="vh-100">
+  <nav class="navbar navbar-light bg-light navbar-expand-md fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="" style="height: 50px" alt="Logo do PC Construtor">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu"
+        aria-expanded="false" aria-label="Botão do menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <div class="navbar-nav me-auto">
+          <div class="dropdown">
+            <a class="nav-link nav-item dropdown-toggle" data-bs-toggle="dropdown" href="#">
+              Componentes
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Gabinetes</a>
+              <a class="dropdown-item" href="#">Placas-Mãe</a>
+              <a class="dropdown-item" href="#">Processadores</a>
+              <a class="dropdown-item" href="#">Placas de Vídeo</a>
+            </div>
+          </div>
+          <a class="nav-link nav-item" href="montagem.html">Monte seu PC</a>
+          <a class="nav-link nav-item" href="manual.html">Restrições</a>
+          <a class="nav-link nav-item" href="#contato">Contato</a>
+        </div>
+
+        <div class="navbar-nav">
+          <a class="nav-link nav-item" href="central.html">Meus PCs</a>
+          <a class="nav-link nav-item" href="login.html"><i class="fa fa-right-to-bracket"></i> Entrar</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="p-5 bg-secondary-subtle rounded-3 text-center mb-4" style="margin-top: 89px;">
+    <div class="d-flex flex-row-reverse me-5 mb-4">
+      <h5 class="build-price">Preço total: R$ </h5>
+    </div>
+    <ul class="nav nav-tabs d-flex" id="componentsTab" role="tablist">
+      <li class="nav-item flex-fill" role="presentation">
+        <button class="nav-link btn btn-light col-12 active" id="case-tab" data-bs-toggle="tab" data-bs-target="#caseOptions" type="button" role="tab" aria-controls="caseOptions" aria-selected="true">Gabinete</button>
+      </li>
+      <li class="nav-item mb-4 flex-fill" role="presentation">
+        <button class="nav-link btn btn-light col-12" id="mobo-tab" data-bs-toggle="tab" data-bs-target="#moboOptions" type="button" role="tab" aria-controls="moboOptions" aria-selected="false">Placa-Mãe</button>
+      </li>
+      <li class="nav-item mb-4 flex-fill" role="presentation">
+        <button class="nav-link btn btn-light col-12" id="cpu-tab" data-bs-toggle="tab" data-bs-target="#cpuOptions" type="button" role="tab" aria-controls="cpuOptions" aria-selected="false">Processador</button>
+      </li>
+      <li class="nav-item mb-4 flex-fill" role="presentation">
+        <button class="nav-link btn btn-light col-12" id="ram-tab" data-bs-toggle="tab" data-bs-target="#ramOptions" type="button" role="tab" aria-controls="ramOptions" aria-selected="false">RAM</button>
+      </li>
+      <li class="nav-item mb-4 flex-fill" role="presentation">
+        <button class="nav-link btn btn-light col-12" id="storage-tab" data-bs-toggle="tab" data-bs-target="#storageOptions" type="button" role="tab" aria-controls="storageOptions" aria-selected="false">Armazenamento</button>
+      </li>
+      <li class="nav-item mb-4 flex-fill" role="presentation">
+        <button class="nav-link btn btn-light col-12" id="power-tab" data-bs-toggle="tab" data-bs-target="#powerOptions" type="button" role="tab" aria-controls="powerOptions" aria-selected="false">Fonte</button>
+      </li>
+      <li class="nav-item mb-4 flex-fill" role="presentation">
+        <button class="nav-link btn btn-light col-12" id="gpu-tab" data-bs-toggle="tab" data-bs-target="#gpuOptions" type="button" role="tab" aria-controls="gpuOptions" aria-selected="false">Placa de Vídeo</button>
+      </li>
+      <li class="nav-item mb-4 flex-fill" role="presentation">
+        <button class="nav-link btn btn-light col-12" id="cooler-tab" data-bs-toggle="tab" data-bs-target="#coolerOptions" type="button" role="tab" aria-controls="coolerOptions" aria-selected="false">Cooler CPU</button>
+      </li>
+      <li class="nav-item mb-4 flex-fill" role="presentation">
+        <button class="nav-link btn btn-light col-12" id="fan-tab" data-bs-toggle="tab" data-bs-target="#fanOptions" type="button" role="tab" aria-controls="fanOptions" aria-selected="false">Ventoinha</button>
+      </li>
+    </ul>
+    <div class="tab-content" id="componentsTabContent">
+      <div class="tab-pane fade show active" id="caseOptions" role="tabpanel" aria-labelledby="case-tab">
+        Opções de gabinete.
+        <br>
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Carregando...</span>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="moboOptions" role="tabpanel" aria-labelledby="mobo-tab">
+        Opções de placa-mãe.
+        <br>
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Carregando...</span>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="cpuOptions" role="tabpanel" aria-labelledby="cpu-tab">
+        Opções de processador.
+        <br>
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Carregando...</span>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="ramOptions" role="tabpanel" aria-labelledby="ram-tab">
+        Opções de RAM.
+        <br>
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Carregando...</span>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="storageOptions" role="tabpanel" aria-labelledby="storage-tab">
+        Opções de armazenamento.
+        <br>
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Carregando...</span>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="powerOptions" role="tabpanel" aria-labelledby="power-tab">
+        Opções de fonte.
+        <br>
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Carregando...</span>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="gpuOptions" role="tabpanel" aria-labelledby="gpu-tab">
+        Opções de placa de vídeo.
+        <br>
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Carregando...</span>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="coolerOptions" role="tabpanel" aria-labelledby="cooler-tab">
+        Opções de cooler para processador.
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Carregando...</span>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="fanOptions" role="tabpanel" aria-labelledby="fan-tab">
+        Opções de ventoinhas.
+        <br>
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Carregando...</span>
+        </div>
+      </div>
+    </div>    
+  </div>
+
+  <footer class="modal-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-5 col-lg-4 col-sm-7">
+          <h5>Usuário</h5>
+          <ul class="list-unstyled">
+            <li><a href="central.html">Minha Conta</a></li>
+            <li><a href="conta.html">Meus Dados</a></li>
+          </ul>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-sm-5">
+          <h5>Componentes</h5>
+          <ul class="list-unstyled">
+            <li><a href="componentes.html">Catálogo</a></li>
+            <li><a href="manual.html">Restrições</a></li>
+            <li><a href="montagem.html">Monte seu PC</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-5" id="contato">
+          <h5>Contato</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-user"></i> Maximilian Harrisson</li>
+            <li><i class="fas fa-phone"></i> (00) 987654321</li>
+            <li><i class="fas fa-envelope"></i><a href="mailto:maximilian@email.com"> maximilian@email.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../src/js/jquery.js"></script>
+  <script src="../src/js/popper.js"></script>
+  <script src="../src/js/bootstrap.js"></script>
+  <script src="../src/js/index.js"></script>
+</body>
+</html>
