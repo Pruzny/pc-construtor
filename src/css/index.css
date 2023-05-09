@@ -19,6 +19,10 @@ h5 {
   font-weight: 600;
 }
 
+h4 {
+  font-weight: 600;
+}
+
 h2 {
   font-weight: 600;
 }
@@ -52,6 +56,52 @@ h2 {
   text-shadow: 2px 2px #000;
 }
 
+li button.btn {
+  font-size: 30px;
+  align-self: center;
+  overflow: auto;
+  text-overflow: ellipsis;
+}
+
+.botao-montagem {
+  font-size: 20px;
+}
+
+h5.build-price {
+  font-size: 40px;
+}
+
+.card-img-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.scrollspy {
+  height: 500px;
+  text-align: justify;
+  padding-right: 30px;
+  font-size: larger;
+  overflow: auto;
+}
+
+.nav-pills a {
+  font-size: 26px;
+  font-weight: 600;
+  text-align: end;
+}
+
+.tab-content .card {
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  li button.btn {
+    font-size: 20px;
+    align-self: center;
+    overflow: auto;
+    text-overflow: ellipsis;
+  }
+}
+
 @media (max-width: 1200px) {
   .carousel-item img {
     height: 300px;
@@ -62,20 +112,9 @@ h2 {
   .text-2 {
     font-size: 25px;
   }
-}
-
-.botao-montagem {
-  font-size: 20px;
-}
-
-.nav-item button {
-  font-size: 30px;
-}
-
-h5.build-price {
-  font-size: 40px;
-}
-
-.card-img-overlay {
-  background-color: rgba(0, 0, 0, 0.5);
+  .nav-pills a {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: end;
+  }
 }

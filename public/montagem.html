@@ -45,104 +45,165 @@
       </div>
     </div>
   </nav>
-  
-  <div class="p-5 bg-secondary-subtle rounded-3 text-center mb-4" style="margin-top: 89px;">
-    <div class="d-flex flex-row-reverse me-5 mb-4">
-      <h5 class="build-price">Preço total: R$ </h5>
-    </div>
-    <ul class="nav nav-tabs d-flex" id="componentsTab" role="tablist">
+
+  <div class="row p-5 bg-secondary-subtle rounded-3 text-center mb-4 row-cols-6" style="margin-top: 89px;">
+    <ul class="nav nav-tabs col-3 flex-column" id="componentsTab" role="tablist">
       <li class="nav-item flex-fill" role="presentation">
-        <button class="nav-link btn btn-light col-12 active" id="case-tab" data-bs-toggle="tab" data-bs-target="#caseOptions" type="button" role="tab" aria-controls="caseOptions" aria-selected="true">Gabinete</button>
+        <button class="nav-link btn btn-light col-12 active" id="case-tab" data-bs-toggle="tab"
+          data-bs-target="#caseOptions" type="button" role="tab" aria-controls="caseOptions"
+          aria-selected="true">Gabinete</button>
       </li>
-      <li class="nav-item mb-4 flex-fill" role="presentation">
-        <button class="nav-link btn btn-light col-12" id="mobo-tab" data-bs-toggle="tab" data-bs-target="#moboOptions" type="button" role="tab" aria-controls="moboOptions" aria-selected="false">Placa-Mãe</button>
+      <li class="flex-fill col-12" role="presentation">
+        <button class="nav-link btn btn-light col-12" id="mobo-tab" data-bs-toggle="tab" data-bs-target="#moboOptions"
+          type="button" role="tab" aria-controls="moboOptions" aria-selected="false">Placa-Mãe</button>
       </li>
-      <li class="nav-item mb-4 flex-fill" role="presentation">
-        <button class="nav-link btn btn-light col-12" id="cpu-tab" data-bs-toggle="tab" data-bs-target="#cpuOptions" type="button" role="tab" aria-controls="cpuOptions" aria-selected="false">Processador</button>
+      <li class="flex-fill col-12" role="presentation">
+        <button class="nav-link btn btn-light col-12" id="cpu-tab" data-bs-toggle="tab" data-bs-target="#cpuOptions"
+          type="button" role="tab" aria-controls="cpuOptions" aria-selected="false">Processador</button>
       </li>
-      <li class="nav-item mb-4 flex-fill" role="presentation">
-        <button class="nav-link btn btn-light col-12" id="ram-tab" data-bs-toggle="tab" data-bs-target="#ramOptions" type="button" role="tab" aria-controls="ramOptions" aria-selected="false">RAM</button>
+      <li class="flex-fill col-12" role="presentation">
+        <button class="nav-link btn btn-light col-12" id="ram-tab" data-bs-toggle="tab" data-bs-target="#ramOptions"
+          type="button" role="tab" aria-controls="ramOptions" aria-selected="false">RAM</button>
       </li>
-      <li class="nav-item mb-4 flex-fill" role="presentation">
-        <button class="nav-link btn btn-light col-12" id="storage-tab" data-bs-toggle="tab" data-bs-target="#storageOptions" type="button" role="tab" aria-controls="storageOptions" aria-selected="false">Armazenamento</button>
+      <li class="flex-fill col-12" role="presentation">
+        <button class="nav-link btn btn-light col-12" id="storage-tab" data-bs-toggle="tab"
+          data-bs-target="#storageOptions" type="button" role="tab" aria-controls="storageOptions"
+          aria-selected="false">Armazenamento</button>
       </li>
-      <li class="nav-item mb-4 flex-fill" role="presentation">
-        <button class="nav-link btn btn-light col-12" id="power-tab" data-bs-toggle="tab" data-bs-target="#powerOptions" type="button" role="tab" aria-controls="powerOptions" aria-selected="false">Fonte</button>
+      <li class="flex-fill col-12" role="presentation">
+        <button class="nav-link btn btn-light col-12" id="power-tab" data-bs-toggle="tab" data-bs-target="#powerOptions"
+          type="button" role="tab" aria-controls="powerOptions" aria-selected="false">Fonte</button>
       </li>
-      <li class="nav-item mb-4 flex-fill" role="presentation">
-        <button class="nav-link btn btn-light col-12" id="gpu-tab" data-bs-toggle="tab" data-bs-target="#gpuOptions" type="button" role="tab" aria-controls="gpuOptions" aria-selected="false">Placa de Vídeo</button>
+      <li class="flex-fill col-12" role="presentation">
+        <button class="nav-link btn btn-light col-12" id="gpu-tab" data-bs-toggle="tab" data-bs-target="#gpuOptions"
+          type="button" role="tab" aria-controls="gpuOptions" aria-selected="false">Placa de Vídeo</button>
       </li>
-      <li class="nav-item mb-4 flex-fill" role="presentation">
-        <button class="nav-link btn btn-light col-12" id="cooler-tab" data-bs-toggle="tab" data-bs-target="#coolerOptions" type="button" role="tab" aria-controls="coolerOptions" aria-selected="false">Cooler CPU</button>
+      <li class="flex-fill col-12" role="presentation">
+        <button class="nav-link btn btn-light col-12" id="cooler-tab" data-bs-toggle="tab"
+          data-bs-target="#coolerOptions" type="button" role="tab" aria-controls="coolerOptions"
+          aria-selected="false">Cooler CPU</button>
       </li>
-      <li class="nav-item mb-4 flex-fill" role="presentation">
-        <button class="nav-link btn btn-light col-12" id="fan-tab" data-bs-toggle="tab" data-bs-target="#fanOptions" type="button" role="tab" aria-controls="fanOptions" aria-selected="false">Ventoinha</button>
+      <li class="flex-fill col-12" role="presentation">
+        <button class="nav-link btn btn-light col-12" id="fan-tab" data-bs-toggle="tab" data-bs-target="#fanOptions"
+          type="button" role="tab" aria-controls="fanOptions" aria-selected="false">Ventoinha</button>
       </li>
     </ul>
-    <div class="tab-content" id="componentsTabContent">
+    <div class="tab-content col-6" id="componentsTabContent">
       <div class="tab-pane fade show active" id="caseOptions" role="tabpanel" aria-labelledby="case-tab">
-        Opções de gabinete.
-        <br>
-        <div class="spinner-border" role="status">
-          <span class="visually-hidden">Carregando...</span>
+        <div class="card card-ph col-lg-11 col-xl-10 col-xxl-8" aria-hidden="true">
+          <img src="" class="card-img-top" alt="Carregando">
+          <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+              <span class="placeholder col-6"></span>
+            </h5>
+            <p class="card-text placeholder-glow">
+              <span class="placeholder col-7"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-8"></span>
+            </p>
+            <a class="btn btn-primary disabled placeholder col-6"></a>
+          </div>
+        </div>
+        <div class="card card-ph col-lg-11 col-xl-10 col-xxl-8" aria-hidden="true">
+          <img src="" class="card-img-top" alt="Carregando">
+          <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+              <span class="placeholder col-6"></span>
+            </h5>
+            <p class="card-text placeholder-glow">
+              <span class="placeholder col-7"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-8"></span>
+            </p>
+            <a class="btn btn-primary disabled placeholder col-6"></a>
+          </div>
+        </div>
+        <div class="card card-ph col-lg-11 col-xl-10 col-xxl-8" aria-hidden="true">
+          <img src="" class="card-img-top" alt="Carregando">
+          <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+              <span class="placeholder col-6"></span>
+            </h5>
+            <p class="card-text placeholder-glow">
+              <span class="placeholder col-7"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-8"></span>
+            </p>
+            <a class="btn btn-primary disabled placeholder col-6"></a>
+          </div>
         </div>
       </div>
       <div class="tab-pane fade" id="moboOptions" role="tabpanel" aria-labelledby="mobo-tab">
-        Opções de placa-mãe.
-        <br>
-        <div class="spinner-border" role="status">
-          <span class="visually-hidden">Carregando...</span>
+        <div class="card card-ph col-lg-11 col-xl-10 col-xxl-8" aria-hidden="true">
+          <img src="" class="card-img-top" alt="Carregando">
+          <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+              <span class="placeholder col-6"></span>
+            </h5>
+            <p class="card-text placeholder-glow">
+              <span class="placeholder col-7"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-8"></span>
+            </p>
+            <a class="btn btn-primary disabled placeholder col-6"></a>
+          </div>
+        </div>
+        <div class="card card-ph col-lg-11 col-xl-10 col-xxl-8" aria-hidden="true">
+          <img src="" class="card-img-top" alt="Carregando">
+          <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+              <span class="placeholder col-6"></span>
+            </h5>
+            <p class="card-text placeholder-glow">
+              <span class="placeholder col-7"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-8"></span>
+            </p>
+            <a class="btn btn-primary disabled placeholder col-6"></a>
+          </div>
+        </div>
+        <div class="card card-ph col-lg-11 col-xl-10 col-xxl-8" aria-hidden="true">
+          <img src="" class="card-img-top" alt="Carregando">
+          <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+              <span class="placeholder col-6"></span>
+            </h5>
+            <p class="card-text placeholder-glow">
+              <span class="placeholder col-7"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-8"></span>
+            </p>
+            <a class="btn btn-primary disabled placeholder col-6"></a>
+          </div>
         </div>
       </div>
       <div class="tab-pane fade" id="cpuOptions" role="tabpanel" aria-labelledby="cpu-tab">
-        Opções de processador.
-        <br>
-        <div class="spinner-border" role="status">
-          <span class="visually-hidden">Carregando...</span>
-        </div>
       </div>
       <div class="tab-pane fade" id="ramOptions" role="tabpanel" aria-labelledby="ram-tab">
-        Opções de RAM.
-        <br>
-        <div class="spinner-border" role="status">
-          <span class="visually-hidden">Carregando...</span>
-        </div>
       </div>
       <div class="tab-pane fade" id="storageOptions" role="tabpanel" aria-labelledby="storage-tab">
-        Opções de armazenamento.
-        <br>
-        <div class="spinner-border" role="status">
-          <span class="visually-hidden">Carregando...</span>
-        </div>
       </div>
       <div class="tab-pane fade" id="powerOptions" role="tabpanel" aria-labelledby="power-tab">
-        Opções de fonte.
-        <br>
-        <div class="spinner-border" role="status">
-          <span class="visually-hidden">Carregando...</span>
-        </div>
       </div>
       <div class="tab-pane fade" id="gpuOptions" role="tabpanel" aria-labelledby="gpu-tab">
-        Opções de placa de vídeo.
-        <br>
-        <div class="spinner-border" role="status">
-          <span class="visually-hidden">Carregando...</span>
-        </div>
       </div>
       <div class="tab-pane fade" id="coolerOptions" role="tabpanel" aria-labelledby="cooler-tab">
-        Opções de cooler para processador.
-        <div class="spinner-border" role="status">
-          <span class="visually-hidden">Carregando...</span>
-        </div>
       </div>
       <div class="tab-pane fade" id="fanOptions" role="tabpanel" aria-labelledby="fan-tab">
-        Opções de ventoinhas.
-        <br>
-        <div class="spinner-border" role="status">
-          <span class="visually-hidden">Carregando...</span>
-        </div>
       </div>
-    </div>    
+    </div>
   </div>
 
   <footer class="modal-footer">
@@ -181,4 +242,5 @@
   <script src="../src/js/bootstrap.js"></script>
   <script src="../src/js/index.js"></script>
 </body>
+
 </html>
