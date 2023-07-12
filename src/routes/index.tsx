@@ -5,6 +5,8 @@ import Login from "../pages/Login";
 import Builder from "../pages/Builder";
 import Guide from "../pages/Guide";
 import Register from "../pages/Register";
+import Error from "../pages/Error";
+import Catalog from "../pages/Catalog";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +18,9 @@ const router = createBrowserRouter([
       { path: "montagem", element: <Builder /> },
       { path: "guia", element: <Guide /> },
       { path: "login", element: <Login /> },
-      { path: "register", element: <Register /> },
+      { path: "registrar", element: <Register /> },
+      { path: "catalogo", element: <Catalog />},
+      { path: "*", element: <Error />}
     ]
   }
 ]);

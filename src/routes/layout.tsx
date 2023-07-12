@@ -1,11 +1,18 @@
 import { Outlet } from "react-router-dom";
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
+import "./styles.css";
 
 const Layout = () => {
   return (
     <>
-    <div>
-      <Outlet />
-    </div>
+      <div>
+        <NavBar />
+        <div className="container text-center content">
+          <Outlet />
+        </div>
+      </div>
+        <Footer />
     </>
   );
 }

@@ -1,0 +1,14 @@
+.modal-footer {
+  color: white;
+  justify-content: center;
+}
+
+.link {
+  text-decoration: none;
+  color: #639bcf;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: #d8e6f3;
+}

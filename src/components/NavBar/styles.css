@@ -1,0 +1,23 @@
+.image-icon {
+  height: 50px;
+  font-size: 30px;
+}
+
+.ul {
+  list-style-type: none;
+}
+
+.navbar {
+  height: 60px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .navbar-collapse {
+    max-height: 0;
+  }
+}
