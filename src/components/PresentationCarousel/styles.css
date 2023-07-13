@@ -1,0 +1,38 @@
+.carousel-indicators {
+  list-style-type: none;
+}
+
+.carousel-caption {
+  top: 70px
+}
+
+.carousel-item img {
+  height: 350px;
+}
+
+.text-1 {
+  font-size: 45px;
+  text-shadow: 2px 2px #000;
+}
+
+.text-2 {
+  font-size: 40px;
+  text-shadow: 2px 2px #000;
+}
+
+@media (max-width: 1200px) {
+  .carousel-item img {
+    height: 300px;
+  }
+  .text-1 {
+    font-size: 30px;
+  }
+  .text-2 {
+    font-size: 25px;
+  }
+  .nav-pills a {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: end;
+  }
+}

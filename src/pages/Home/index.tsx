@@ -1,4 +1,5 @@
 import PresentationCard from "../../components/PresentationCard";
+import PresentationCarousel from "../../components/PresentationCarousel";
 import { componentCards } from "../../constants";
 // import "./styles.css"
 
@@ -17,6 +18,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <PresentationCarousel />
       <div className="row mb-4">
         {createCards()}
       </div>
