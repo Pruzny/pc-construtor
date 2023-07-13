@@ -8,7 +8,7 @@ const Layout = () => {
     <>
       <div>
         <NavBar />
-        <div className="container text-center content">
+        <div className="text-center content">
           <Outlet />
         </div>
       </div>

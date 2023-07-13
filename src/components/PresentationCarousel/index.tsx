@@ -2,7 +2,7 @@ import "./styles.css"
 
 const PresentationCarousel = () => {
   return (
-    <div id="id-carousel" className="carousel slide d-none d-md-block mb-4 mt-4" data-bs-ride="carousel" data-bs-interval="3000">
+    <div id="id-carousel" className="carousel slide d-none d-md-block mb-4" data-bs-ride="carousel" data-bs-interval="3000">
       <ol className="carousel-indicators">
         <li data-bs-target="#id-carousel" data-bs-slide-to="0" className="active"></li>
         <li data-bs-target="#id-carousel" data-bs-slide-to="1"></li>

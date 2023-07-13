@@ -6,6 +6,7 @@ import { componentCards } from "../../constants";
 const Home = () => {
   return (
     <>
+      <PresentationCarousel />
       <div className="container">
         <div className="p-5 bg-secondary-subtle rounded-3 d-block d-md-none text-center mt-4 mb-4">
           <div className="card bg-dark text-white">
@@ -17,10 +18,9 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
-      <PresentationCarousel />
-      <div className="row mb-4">
-        {createCards()}
+        <div className="container row mb-4">
+          {createCards()}
+        </div>
       </div>
     </>
   );
