@@ -1,22 +1,17 @@
+import { ComponentInfo } from "../../models/ComponentInfo";
 import "./styles.css"
 
-interface Props {
-  title: string;
-  isRequired: boolean;
-  description: string;
-  icon: string;
-}
 
-const PresentationCard = ({title, isRequired, description, icon}: Props) => {
+const PresentationCard = ({name, isRequired, description, icon}: ComponentInfo) => {
   console.log(`assets/img/icons/${icon.replace(" ", "")}.png`)
   return (
     <>
       <div className="col-12 col-md-6 col-lg-4 mb-4">
         <div className="card mb-4 h-100">
-          <img src={`assets/img/icons/${icon.replace(" ", "")}`} alt={`Ícone ${title}`} className="card-img" />
+          <img src={`assets/img/icons/${icon.replace(" ", "")}`} alt={`Ícone ${name}`} className="card-img" />
           <div className="card-body">
             <div className="text-center">
-              <h5 className="card-title">{title}</h5>
+              <h5 className="card-title">{name}</h5>
               <p className={`${isRequired ? "text-danger" : "text-info"} fw-bold`}>{isRequired ? "Obrigatório" : "Opcional"}</p>
             </div>
             <p className="card-text">{description}</p>
