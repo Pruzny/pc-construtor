@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-// import { footerLink, footerStyle } from "./styles";
 import "./styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone, faUser } from "@fortawesome/free-solid-svg-icons";
@@ -10,7 +9,7 @@ const Footer = () => {
       <div className="modal-footer bg-dark p-4 bottom">
         <div className="container">
           <div className="row">
-            <div className="col-xl-5 col-lg-4 col-sm-7">
+            <div className="col-xl-5 col-sm-4">
               <h5>Usuário</h5>
               <ul className="list-unstyled">
                 <li>
@@ -25,7 +24,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="col-xl-4 col-lg-4 col-sm-5">
+            <div className="col-xl-4 col-sm-4">
               <h5>Componentes</h5>
               <ul className="list-unstyled">
                 <li>
@@ -45,7 +44,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="col-xl-3 col-lg-4 col-sm-5" id="contato">
+            <div className="col-xl-3 col-sm-4" id="contato">
               <h5>Contato</h5>
               <ul className="list-unstyled">
                 <li> <FontAwesomeIcon icon={faUser} /> Maximilian Harrisson</li>
