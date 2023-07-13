@@ -1,0 +1,25 @@
+.nav-pills a {
+  font-size: 26px;
+  font-weight: 600;
+  text-align: end;
+}
+
+.bg-gray {
+  background-color: #d6d6d6;
+}
+
+div.scrollspy p {
+  text-align: justify;
+}
+
+div.scrollspy h4 {
+  font-weight: 600;
+  text-align: left;
+  margin-top: 32px;
+}
+
+div.scrollspy h5 {
+  font-weight: 600;
+  text-align: left;
+  margin-top: 32px;
+}
