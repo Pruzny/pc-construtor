@@ -7,7 +7,7 @@ import "./styles.css";
 const NavBar = () => {
   return (
     <>
-      <nav className="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
+      <nav className="navbar navbar-dark bg-dark navbar-expand-md fixed-top shadow-lg">
         <div className="container">
           <Link to="" className="navbar-brand">
             <img src="../../assets/logo.png" className="image-icon" alt="Logo do PC Construtor" />
