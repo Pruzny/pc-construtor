@@ -1,0 +1,12 @@
+.register-image {
+  background-image: url('../assets/img/background/PC-1.png');
+  background-size: cover;
+}
+
+.card {
+  border-radius: 15px;
+}
+
+h2 {
+  font-weight: 700;
+}
