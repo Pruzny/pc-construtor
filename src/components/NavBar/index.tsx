@@ -41,7 +41,7 @@ const NavBar = () => {
             </div>
 
             <div className="navbar-nav">
-              <Link to="/login" className="nav-link nav-item">
+              <Link to="/perfil" className="nav-link nav-item">
                 Meus PCs
                 <span className="badge bg-danger rounded-circle translate-middle ms-1">1</span>
               </Link>

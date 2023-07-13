@@ -7,6 +7,7 @@ import Guide from "../pages/Guide";
 import Register from "../pages/Register";
 import Error from "../pages/Error";
 import Catalog from "../pages/Catalog";
+import Profile from "../pages/Profile";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       { path: "login", element: <Login /> },
       { path: "registrar", element: <Register /> },
       { path: "catalogo", element: <Catalog />},
+      { path: "perfil", element: <Profile />},
       { path: "*", element: <Error />}
     ]
   }
