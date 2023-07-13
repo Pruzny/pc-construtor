@@ -1,0 +1,9 @@
+.card-text {
+  text-align: justify;
+}
+
+.card-img {
+  height: 300px;
+  width: 300px;
+  align-self: center;
+}
