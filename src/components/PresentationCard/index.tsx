@@ -1,8 +1,13 @@
-import { ComponentInfo } from "../../models/ComponentInfo";
 import "./styles.css"
 
+interface Props {
+  name: string;
+  isRequired: boolean;
+  description: string;
+  icon: string;
+}
 
-const PresentationCard = ({name, isRequired, description, icon}: ComponentInfo) => {
+const PresentationCard = ({name, isRequired, description, icon}: Props) => {
   console.log(`assets/img/icons/${icon.replace(" ", "")}.png`)
   return (
     <>

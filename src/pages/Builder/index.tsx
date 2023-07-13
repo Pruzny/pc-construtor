@@ -1,169 +1,69 @@
+import { Link } from "react-router-dom";
 import "./styles.css";
+import { componentInfos } from "../../constants";
+import ComponentLabel from "../../components/ComponentLabel";
+import ComponentCard from "../../components/ComponentCard";
+
+const starterTab = 0;
 
 const Builder = () => {
   return (
     <>
-      <div className="row p-5 bg-secondary-subtle rounded-3 text-center mb-4">
-        <ul className="nav nav-tabs col-3 flex-column flex-wrap align-content-around" id="componentsTab" role="tablist">
-          <li className="nav-item d-flex" role="presentation">
-            <button className="nav-link btn btn-light col-12 flex-fill active" id="case-tab" data-bs-toggle="tab"
-              data-bs-target="#caseOptions" type="button" role="tab" aria-controls="caseOptions"
-              aria-selected="true">Gabinete</button>
-          </li>
-          <li className="nav-item d-flex" role="presentation">
-            <button className="nav-link btn btn-light col-12 flex-fill" id="mobo-tab" data-bs-toggle="tab" data-bs-target="#moboOptions"
-              type="button" role="tab" aria-controls="moboOptions" aria-selected="false">Placa-Mãe</button>
-          </li>
-          <li className="nav-item d-flex" role="presentation">
-            <button className="nav-link btn btn-light col-12 flex-fill" id="cpu-tab" data-bs-toggle="tab" data-bs-target="#cpuOptions"
-              type="button" role="tab" aria-controls="cpuOptions" aria-selected="false">Processador</button>
-          </li>
-          <li className="nav-item d-flex" role="presentation">
-            <button className="nav-link btn btn-light col-12 flex-fill" id="ram-tab" data-bs-toggle="tab" data-bs-target="#ramOptions"
-              type="button" role="tab" aria-controls="ramOptions" aria-selected="false">RAM</button>
-          </li>
-          <li className="nav-item d-flex" role="presentation">
-            <button className="nav-link btn btn-light col-12 flex-fill" id="storage-tab" data-bs-toggle="tab"
-              data-bs-target="#storageOptions" type="button" role="tab" aria-controls="storageOptions"
-              aria-selected="false">Armazenamento</button>
-          </li>
-          <li className="nav-item d-flex" role="presentation">
-            <button className="nav-link btn btn-light col-12 flex-fill" id="power-tab" data-bs-toggle="tab" data-bs-target="#powerOptions"
-              type="button" role="tab" aria-controls="powerOptions" aria-selected="false">Fonte</button>
-          </li>
-          <li className="nav-item d-flex" role="presentation">
-            <button className="nav-link btn btn-light col-12 flex-fill" id="gpu-tab" data-bs-toggle="tab" data-bs-target="#gpuOptions"
-              type="button" role="tab" aria-controls="gpuOptions" aria-selected="false">Placa de Vídeo</button>
-          </li>
-          <li className="nav-item d-flex" role="presentation">
-            <button className="nav-link btn btn-light col-12 flex-fill" id="cooler-tab" data-bs-toggle="tab"
-              data-bs-target="#coolerOptions" type="button" role="tab" aria-controls="coolerOptions"
-              aria-selected="false">Cooler CPU</button>
-          </li>
-          <li className="nav-item d-flex" role="presentation">
-            <button className="nav-link btn btn-light col-12 flex-fill" id="fan-tab" data-bs-toggle="tab" data-bs-target="#fanOptions"
-              type="button" role="tab" aria-controls="fanOptions" aria-selected="false">Ventoinha</button>
-          </li>
+      <div className="row p-5 rounded-3 text-center mb-4">
+        <ul className="nav nav-tabs col-3 flex-column flex-wrap d-none d-md-block bg-secondary-subtle pe-0 rounded" id="componentsTab" role="tablist">
+          {createLabels()}
         </ul>
 
-        <div className="tab-content col-6" id="componentsTabContent">
-          <div className="tab-pane fade show active" id="caseOptions" role="tabpanel" aria-labelledby="case-tab">
-            <div className="card card-ph col-lg-11 col-xl-10 col-xxl-8" aria-hidden="true">
-              <img src="" className="card-img-top" alt="Carregando" />
-              <div className="card-body">
-                <h5 className="card-title placeholder-glow">
-                  <span className="placeholder col-6"></span>
-                </h5>
-                <p className="card-text placeholder-glow">
-                  <span className="placeholder col-7"></span>
-                  <span className="placeholder col-4"></span>
-                  <span className="placeholder col-4"></span>
-                  <span className="placeholder col-6"></span>
-                  <span className="placeholder col-8"></span>
-                </p>
-                <a className="btn btn-primary disabled placeholder col-6"></a>
+        <div className="collapse p-4 d-block d-md-none" id="menu">
+            <div className="dropdown">
+              <a className="dropdown-toggle" data-bs-toggle="dropdown">
+                Componentes
+              </a>
+              <div className="dropdown-menu">
+                <a className="dropdown-item" href="#">Gabinetes</a>
+                <a className="dropdown-item" href="#">Placas-Mãe</a>
+                <a className="dropdown-item" href="#">Processadores</a>
+                <a className="dropdown-item" href="#">Placas de Vídeo</a>
               </div>
             </div>
-            <div className="card card-ph col-lg-11 col-xl-10 col-xxl-8" aria-hidden="true">
-              <img src="" className="card-img-top" alt="Carregando" />
-              <div className="card-body">
-                <h5 className="card-title placeholder-glow">
-                  <span className="placeholder col-6"></span>
-                </h5>
-                <p className="card-text placeholder-glow">
-                  <span className="placeholder col-7"></span>
-                  <span className="placeholder col-4"></span>
-                  <span className="placeholder col-4"></span>
-                  <span className="placeholder col-6"></span>
-                  <span className="placeholder col-8"></span>
-                </p>
-                <a className="btn btn-primary disabled placeholder col-6"></a>
-              </div>
-            </div>
-            <div className="card card-ph col-lg-11 col-xl-10 col-xxl-8" aria-hidden="true">
-              <img src="" className="card-img-top" alt="Carregando" />
-              <div className="card-body">
-                <h5 className="card-title placeholder-glow">
-                  <span className="placeholder col-6"></span>
-                </h5>
-                <p className="card-text placeholder-glow">
-                  <span className="placeholder col-7"></span>
-                  <span className="placeholder col-4"></span>
-                  <span className="placeholder col-4"></span>
-                  <span className="placeholder col-6"></span>
-                  <span className="placeholder col-8"></span>
-                </p>
-                <a className="btn btn-primary disabled placeholder col-6"></a>
-              </div>
-            </div>
-          </div>
-          <div className="tab-pane fade" id="moboOptions" role="tabpanel" aria-labelledby="mobo-tab">
-            <div className="card card-ph col-lg-11 col-xl-10 col-xxl-8" aria-hidden="true">
-              <img src="" className="card-img-top" alt="Carregando" />
-              <div className="card-body">
-                <h5 className="card-title placeholder-glow">
-                  <span className="placeholder col-6"></span>
-                </h5>
-                <p className="card-text placeholder-glow">
-                  <span className="placeholder col-7"></span>
-                  <span className="placeholder col-4"></span>
-                  <span className="placeholder col-4"></span>
-                  <span className="placeholder col-6"></span>
-                  <span className="placeholder col-8"></span>
-                </p>
-                <a className="btn btn-primary disabled placeholder col-6"></a>
-              </div>
-            </div>
-            <div className="card card-ph col-lg-11 col-xl-10 col-xxl-8" aria-hidden="true">
-              <img src="" className="card-img-top" alt="Carregando" />
-              <div className="card-body">
-                <h5 className="card-title placeholder-glow">
-                  <span className="placeholder col-6"></span>
-                </h5>
-                <p className="card-text placeholder-glow">
-                  <span className="placeholder col-7"></span>
-                  <span className="placeholder col-4"></span>
-                  <span className="placeholder col-4"></span>
-                  <span className="placeholder col-6"></span>
-                  <span className="placeholder col-8"></span>
-                </p>
-                <a className="btn btn-primary disabled placeholder col-6"></a>
-              </div>
-            </div>
-            <div className="card card-ph col-lg-11 col-xl-10 col-xxl-8" aria-hidden="true">
-              <img src="" className="card-img-top" alt="Carregando" />
-              <div className="card-body">
-                <h5 className="card-title placeholder-glow">
-                  <span className="placeholder col-6"></span>
-                </h5>
-                <p className="card-text placeholder-glow">
-                  <span className="placeholder col-7"></span>
-                  <span className="placeholder col-4"></span>
-                  <span className="placeholder col-4"></span>
-                  <span className="placeholder col-6"></span>
-                  <span className="placeholder col-8"></span>
-                </p>
-                <a className="btn btn-primary disabled placeholder col-6"></a>
-              </div>
-            </div>
-          </div>
-          <div className="tab-pane fade" id="cpuOptions" role="tabpanel" aria-labelledby="cpu-tab">
-          </div>
-          <div className="tab-pane fade" id="ramOptions" role="tabpanel" aria-labelledby="ram-tab">
-          </div>
-          <div className="tab-pane fade" id="storageOptions" role="tabpanel" aria-labelledby="storage-tab">
-          </div>
-          <div className="tab-pane fade" id="powerOptions" role="tabpanel" aria-labelledby="power-tab">
-          </div>
-          <div className="tab-pane fade" id="gpuOptions" role="tabpanel" aria-labelledby="gpu-tab">
-          </div>
-          <div className="tab-pane fade" id="coolerOptions" role="tabpanel" aria-labelledby="cooler-tab">
-          </div>
-          <div className="tab-pane fade" id="fanOptions" role="tabpanel" aria-labelledby="fan-tab">
-          </div>
+        </div>
+        <div className="container tab-content col-8" id="componentsTabContent">
+          {createTabs()}
         </div>
       </div>
     </>
   );
 }
 export default Builder;
+
+const createLabels = () => {
+  const cards: JSX.Element[] = [];
+  componentInfos.forEach((label, index) => {
+    cards.push(<ComponentLabel name={label.name} raw={label.raw} isActive={index === starterTab} />);
+  });
+  return cards
+}
+
+const createContent = () => {
+  const content: JSX.Element[] = [];
+
+  // TODO Placeholder
+  for (let i = 0; i < 3; i++) {
+    content.push(<ComponentCard name={""} isPlaceholder={true} />);
+  }
+  return content;
+}
+
+const createTabs = () => {
+  const tabs: JSX.Element[] = [];
+  componentInfos.forEach((label, index) => {
+    tabs.push(
+      <div className={`tab-pane fade show ${index === starterTab ? "active" : ""}`} id={`${label.raw}Options`} role="tabpanel" aria-labelledby={`${label.raw}-tab`}>
+          <div className="row">
+            {createContent()}
+          </div>
+      </div>
+    );
+  });
+  return tabs;
+}

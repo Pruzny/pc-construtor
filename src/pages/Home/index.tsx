@@ -1,6 +1,6 @@
 import PresentationCard from "../../components/PresentationCard";
 import PresentationCarousel from "../../components/PresentationCarousel";
-import { componentCards } from "../../constants";
+import { componentInfos } from "../../constants";
 // import "./styles.css"
 
 const Home = () => {
@@ -29,7 +29,7 @@ export default Home;
 
 const createCards = () => {
   const cards: JSX.Element[] = [];
-  componentCards.forEach((card) => {
+  componentInfos.forEach((card) => {
     cards.push(<PresentationCard name={card.name} isRequired={card.isRequired} description={card.description} icon={card.icon} />);
   });
   return cards;
