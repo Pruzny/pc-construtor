@@ -1,5 +1,7 @@
 import { ComponentInfo } from "../models/ComponentInfo";
 
+export const defaultStale = 10_000;
+
 export const componentInfos: ComponentInfo[] = [
   {
     name: "Gabinete",

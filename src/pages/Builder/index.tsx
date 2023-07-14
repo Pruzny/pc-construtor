@@ -3,10 +3,28 @@ import "./styles.css";
 import { componentInfos } from "../../constants";
 import ComponentLabel from "../../components/ComponentLabel";
 import ComponentCard from "../../components/ComponentCard";
+import useComponents from "../../hooks/useComponents";
+import Peca from "../../models/Peca";
 
 const starterTab = 0;
 
 const Builder = () => {
+  const {
+    data: result,
+    isLoading,
+    error,
+  } = useComponents();
+
+  if (isLoading) {
+    return <h2>Carregando...</h2>
+  }
+
+  if (error || !result) {
+    throw error;
+  }
+
+  const components = result.data;
+
   return (
     <>
       <div className="row p-5 rounded-3 text-center mb-4">
@@ -27,8 +45,8 @@ const Builder = () => {
               </div>
             </div>
         </div>
-        <div className="container tab-content col-8" id="componentsTabContent">
-          {createTabs()}
+        <div className="container ps-4 tab-content col-9" id="componentsTabContent">
+          {createTabs(components)}
         </div>
       </div>
     </>
@@ -39,28 +57,35 @@ export default Builder;
 const createLabels = () => {
   const cards: JSX.Element[] = [];
   componentInfos.forEach((label, index) => {
-    cards.push(<ComponentLabel name={label.name} raw={label.raw} isActive={index === starterTab} />);
+    cards.push(<ComponentLabel key={`label-${index}`} name={label.name} raw={label.raw} isActive={index === starterTab} />);
   });
   return cards
 }
 
-const createContent = () => {
+const createContent = (elements: Peca[]) => {
   const content: JSX.Element[] = [];
 
-  // TODO Placeholder
-  for (let i = 0; i < 3; i++) {
-    content.push(<ComponentCard name={""} isPlaceholder={true} />);
+  if (elements.length > 0) {
+    elements.forEach((element) => {
+      content.push(<ComponentCard component={element} />);
+    });
+  } else {
+    for (let i = 0; i < 3; i++) {
+      content.push(<ComponentCard component={null}/>);
+    }
   }
+  
   return content;
 }
 
-const createTabs = () => {
+const createTabs = (elements: Peca[]) => {
+
   const tabs: JSX.Element[] = [];
   componentInfos.forEach((label, index) => {
     tabs.push(
       <div className={`tab-pane fade show ${index === starterTab ? "active" : ""}`} id={`${label.raw}Options`} role="tabpanel" aria-labelledby={`${label.raw}-tab`}>
           <div className="row">
-            {createContent()}
+            {createContent(elements)}
           </div>
       </div>
     );
