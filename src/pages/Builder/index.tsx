@@ -3,17 +3,28 @@ import "./styles.css";
 import { componentInfos } from "../../constants";
 import ComponentLabel from "../../components/ComponentLabel";
 import ComponentCard from "../../components/ComponentCard";
-import useComponents from "../../hooks/useComponents";
 import Peca from "../../models/Peca";
+import { useState } from "react";
+import useComponentsByType from "../../hooks/useComponentsByType";
 
 const starterTab = 0;
 
 const Builder = () => {
+  const [type, setType] = useState(componentInfos[starterTab].raw);
+  const [components, setComponents] = useState<Peca[]>([]);
+
   const {
     data: result,
     isLoading,
     error,
-  } = useComponents();
+    refetch
+  } = useComponentsByType(type);
+
+  const handleSelectLabel = async (type: string) => {
+    setType(type);
+    await refetch();
+    setComponents(result?.data || []);
+  }
 
   if (isLoading) {
     return <h2>Carregando...</h2>
@@ -23,7 +34,44 @@ const Builder = () => {
     throw error;
   }
 
-  const components = result.data;
+  const createLabels = () => {
+    const cards: JSX.Element[] = [];
+    componentInfos.forEach((label, index) => {
+      cards.push(<ComponentLabel key={`label-${index}`} name={label.name} raw={label.raw} isActive={index === starterTab} onSelectLabel={handleSelectLabel}/>);
+    });
+    return cards
+  }
+  
+  const createContent = (elements: Peca[]) => {
+    const content: JSX.Element[] = [];
+  
+    if (elements.length > 0) {
+      elements.forEach((element) => {
+        content.push(<ComponentCard component={element} />);
+      });
+    } else {
+      for (let i = 0; i < 3; i++) {
+        content.push(<ComponentCard component={null}/>);
+      }
+    }
+    
+    return content;
+  }
+  
+  const createTabs = (elements: Peca[]) => {
+  
+    const tabs: JSX.Element[] = [];
+    componentInfos.forEach((label, index) => {
+      tabs.push(
+        <div className={`tab-pane fade show ${index === starterTab ? "active" : ""}`} id={`${label.raw}Options`} role="tabpanel" aria-labelledby={`${label.raw}-tab`}>
+            <div className="row">
+              {createContent(elements)}
+            </div>
+        </div>
+      );
+    });
+    return tabs;
+  }  
 
   return (
     <>
@@ -53,42 +101,3 @@ const Builder = () => {
   );
 }
 export default Builder;
-
-const createLabels = () => {
-  const cards: JSX.Element[] = [];
-  componentInfos.forEach((label, index) => {
-    cards.push(<ComponentLabel key={`label-${index}`} name={label.name} raw={label.raw} isActive={index === starterTab} />);
-  });
-  return cards
-}
-
-const createContent = (elements: Peca[]) => {
-  const content: JSX.Element[] = [];
-
-  if (elements.length > 0) {
-    elements.forEach((element) => {
-      content.push(<ComponentCard component={element} />);
-    });
-  } else {
-    for (let i = 0; i < 3; i++) {
-      content.push(<ComponentCard component={null}/>);
-    }
-  }
-  
-  return content;
-}
-
-const createTabs = (elements: Peca[]) => {
-
-  const tabs: JSX.Element[] = [];
-  componentInfos.forEach((label, index) => {
-    tabs.push(
-      <div className={`tab-pane fade show ${index === starterTab ? "active" : ""}`} id={`${label.raw}Options`} role="tabpanel" aria-labelledby={`${label.raw}-tab`}>
-          <div className="row">
-            {createContent(elements)}
-          </div>
-      </div>
-    );
-  });
-  return tabs;
-}

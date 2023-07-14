@@ -21,5 +21,8 @@ class GenericApi<T> {
   getAll = () => GenericApi.axiosInstance.get<T[]>(this.endpoint);
 
   getPage = (config: AxiosRequestConfig) => GenericApi.axiosInstance.get<ResultPage<T>>(`${this.endpoint}/paginacao`, config);
+
+  getParam = (param: string, config: AxiosRequestConfig) => GenericApi.axiosInstance.get<T[]>(`${this.endpoint}/${param}`, config);
+
 }
 export default GenericApi;
