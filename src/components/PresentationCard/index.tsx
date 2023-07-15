@@ -1,13 +1,8 @@
+import { Link } from "react-router-dom";
 import "./styles.css"
+import { ComponentInfo } from "../../models/ComponentInfo";
 
-interface Props {
-  name: string;
-  isRequired: boolean;
-  description: string;
-  icon: string;
-}
-
-const PresentationCard = ({name, isRequired, description, icon}: Props) => {
+const PresentationCard = ({name, raw, isRequired, description, icon}: ComponentInfo) => {
   console.log(`assets/img/icons/${icon.replace(" ", "")}.png`)
   return (
     <>
@@ -22,7 +17,7 @@ const PresentationCard = ({name, isRequired, description, icon}: Props) => {
             <p className="card-text">{description}</p>
           </div>
           <div className="card-footer text-end">
-            <button className="btn btn-outline-primary">Buscar produtos</button>
+            <Link className="btn btn-outline-primary" to={`montagem/${raw}`}>Buscar produtos</Link>
           </div>
         </div>
       </div>
