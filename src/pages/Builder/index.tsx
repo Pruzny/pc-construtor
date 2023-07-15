@@ -46,6 +46,12 @@ const Builder = () => {
       elements.forEach((element) => {
         content.push(<ComponentCard component={element} />);
       });
+    } else if (tipo === "") {
+      content.push(
+        <h2>
+          Selecione um tipo de peça.
+        </h2>
+      );
     } else {
       content.push(
         <h2>
@@ -55,21 +61,6 @@ const Builder = () => {
     }
     
     return content;
-  }
-
-  const createTabs = () => {
-
-    const tabs: JSX.Element[] = [];
-    componentInfos.forEach((label) => {
-      tabs.push(
-        <div className={`tab-pane fade show ${label.name === tipo ? "active" : ""}`} id={`${label.raw}Options`} role="tabpanel" aria-labelledby={`${label.raw}-tab`}>
-            <div className="row">
-              {createContent()}
-            </div>
-        </div>
-      );
-    });
-    return tabs;
   }
 
   if (error) {
@@ -97,7 +88,9 @@ const Builder = () => {
             </div>
         </div>
         <div className="container ps-4 tab-content col-9" id="componentsTabContent">
-          {createTabs()}
+          <div className="row">
+            {createContent()}
+          </div>
         </div>
       </div>
     </>
