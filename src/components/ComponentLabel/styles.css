@@ -14,3 +14,7 @@
   background-color: #0d6efd; /* Cor de fundo desejada para o botão ativo */
   color: #fff; /* Cor do texto no botão ativo */
 }
+
+a {
+  text-decoration: none;
+}
