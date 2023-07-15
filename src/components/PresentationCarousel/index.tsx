@@ -9,7 +9,7 @@ const PresentationCarousel = () => {
       </ol>
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img src="../assets/img/background/PC-1.png" className="d-block w-100" alt="Foto de um Computador" />
+          <img src="../assets/img/background/pc-1.png" className="d-block w-100" alt="Foto de um Computador" />
           <div className="carousel-caption">
             <div className="text-center">
               <span className="text-1">As melhores peças para você escolher e montar o seu computador ideal.</span><br />
@@ -18,7 +18,7 @@ const PresentationCarousel = () => {
           </div>
         </div>
         <div className="carousel-item">
-          <img src="../assets/img/background/PC-2.png" className="d-block w-100" alt="Desenho de um Computador" />
+          <img src="../assets/img/background/pc-2.png" className="d-block w-100" alt="Desenho de um Computador" />
           <div className="carousel-caption">
             <div className="text-center">
               <span className="text-1">Escolha componentes desde os mais simples até os de última geração.</span><br />
