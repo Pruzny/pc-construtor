@@ -4,13 +4,12 @@ import { defaultStale } from "../constants";
 
 const pecaApi = new PecaApi();
 
-const useComponentsByType = (tipo: string) => useQuery({
-  queryKey: ["pecas"],
-  queryFn: () => pecaApi.getParam("tipo", {
+const useComponentsByType = (tipo: string) => useQuery(["pecas", tipo], () =>
+  pecaApi.getParam("tipo", {
     params: {
       tipo: tipo,
-    }
+    },
   }),
-  staleTime: defaultStale,
-});
+  { staleTime: defaultStale }
+);
 export default useComponentsByType;
