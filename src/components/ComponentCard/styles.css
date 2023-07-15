@@ -5,14 +5,20 @@
 
 @media (max-width: 768px) {
   .component-card {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .component-card h4 {
-    font-size: 20px;
+    font-size: 16px;
   }
   
   .component-card h5 {
-    font-size: 18px;
+    font-size: 14px;
+  }
+
+  .add-button {
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

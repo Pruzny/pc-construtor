@@ -37,6 +37,9 @@ const ComponentCard = ({component}: Props) => {
         </div>
         <div className="card-body d-flex flex-column">
           <h4 className="card-title fw-bold">
+            <h4 className="fw-bold text-secondary">
+              ID: {component.id}
+            </h4>
             <span className="col-6">
               {component.nome.toUpperCase()}
             </span>
@@ -49,13 +52,14 @@ const ComponentCard = ({component}: Props) => {
               <h4 className="text-success text-center mb-4 fw-semibold">
                 {component.preco.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}
               </h4>
-              <p className="text-center">
+              <p className="text-center d-none d-md-block">
                 {component.descricao}
               </p>
             </span>
           </div>
           <div className="d-flex align-items-end">
-            <a className="btn btn-primary col-12">
+            {/* TODO add to build */}
+            <a className="btn btn-primary col-12 add-button">
               Adicionar
             </a>
           </div>

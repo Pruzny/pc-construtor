@@ -1,10 +1,10 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./styles.css";
 import { componentInfos } from "../../constants";
 import ComponentLabel from "../../components/ComponentLabel";
 import ComponentCard from "../../components/ComponentCard";
 import Peca from "../../models/Peca";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import useComponentsByType from "../../hooks/useComponentsByType";
 
 const Builder = () => {
