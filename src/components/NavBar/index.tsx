@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 import "./styles.css";
+import componentMenu from "../ComponentMenu";
 
 const NavBar = () => {
   return (
@@ -19,15 +20,10 @@ const NavBar = () => {
           <div className="collapse navbar-collapse bg-dark p-4" id="menu">
             <div className="navbar-nav me-auto">
               <div className="dropdown">
-                <a className="nav-link nav-item dropdown-toggle" data-bs-toggle="dropdown">
+                <a className="nav-link nav-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-target>
                   Componentes
                 </a>
-                <div className="dropdown-menu">
-                  <a className="dropdown-item" href="#">Gabinetes</a>
-                  <a className="dropdown-item" href="#">Placas-Mãe</a>
-                  <a className="dropdown-item" href="#">Processadores</a>
-                  <a className="dropdown-item" href="#">Placas de Vídeo</a>
-                </div>
+                {componentMenu()}
               </div>
               <Link to="/montagem" className="nav-link nav-item">
                 Montar PC

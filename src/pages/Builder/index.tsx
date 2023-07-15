@@ -6,11 +6,14 @@ import ComponentCard from "../../components/ComponentCard";
 import Peca from "../../models/Peca";
 import { useEffect } from "react";
 import useComponentsByType from "../../hooks/useComponentsByType";
+import componentMenu from "../../components/ComponentMenu";
 
 const Builder = () => {
   const {
     tipo = "",
   } = useParams<{tipo: string}>();
+
+  const buttonLabel = componentInfos.find((item) => item.raw === tipo)?.name || "Tipo";
 
   const {
     data: result,
@@ -76,15 +79,10 @@ const Builder = () => {
 
         <div className="collapse p-4 d-block d-md-none" id="menu">
             <div className="dropdown">
-              <a className="dropdown-toggle" data-bs-toggle="dropdown">
-                Componentes
-              </a>
-              <div className="dropdown-menu">
-                <a className="dropdown-item" href="#">Gabinetes</a>
-                <a className="dropdown-item" href="#">Placas-Mãe</a>
-                <a className="dropdown-item" href="#">Processadores</a>
-                <a className="dropdown-item" href="#">Placas de Vídeo</a>
-              </div>
+              <button className="dropdown-toggle btn btn-primary" data-bs-toggle="dropdown">
+                {buttonLabel}
+              </button>
+              {componentMenu()}
             </div>
         </div>
         <div className="container ps-4 tab-content col-9" id="componentsTabContent">
