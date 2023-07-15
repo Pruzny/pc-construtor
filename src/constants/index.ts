@@ -64,6 +64,6 @@ export const componentInfos: ComponentInfo[] = [
     raw: "fan",
     isRequired: false,
     description: "É o responsável por manter todo o gabinete em uma temperatura adequada.",
-    icon: "Cooler.png",
+    icon: "Ventoinha.png",
   },
 ]
