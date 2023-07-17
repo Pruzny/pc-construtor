@@ -22,6 +22,7 @@ const Login = () => {
     register,
     handleSubmit,
     reset,
+    formState: { errors },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = ({ email, password }: FieldValues) => {
@@ -64,8 +65,11 @@ const Login = () => {
                           {...register("email")}
                           type="email"
                           id="login-email"
-                          className="form-control form-control-lg"
+                          className={`form-control form-control-lg ${errors.email ? "is-invalid" : ""}`}
                         />
+                        <div className="invalid-feedback">
+                          {errors.email?.message}
+                        </div>
                       </div>
 
                       <div className="form-outline mb-4">
@@ -76,8 +80,11 @@ const Login = () => {
                           {...register("password")}
                           type="password"
                           id="login-password"
-                          className="form-control form-control-lg"
+                          className={`form-control form-control-lg ${errors.password ? "is-invalid" : ""}`}
                         />
+                        <div className="invalid-feedback">
+                          {errors.password?.message}
+                        </div>
                       </div>
 
                       <div className="d-flex justify-content-center">
