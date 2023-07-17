@@ -4,7 +4,6 @@ import { componentInfos } from "../../constants";
 import ComponentLabel from "../../components/ComponentLabel";
 import ComponentCard from "../../components/ComponentCard";
 import Peca from "../../models/Peca";
-import { useEffect } from "react";
 import useComponentsByType from "../../hooks/useComponentsByType";
 import componentMenu from "../../components/ComponentMenu";
 
@@ -20,10 +19,6 @@ const Builder = () => {
     isLoading,
     error,
   } = useComponentsByType(tipo);
-  
-  useEffect(() => {
-    // Load components on init
-  }, []);
 
   console.log(`Tipo: ${tipo}`)
   console.log(result?.data)
