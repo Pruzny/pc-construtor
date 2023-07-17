@@ -20,9 +20,6 @@ const Builder = () => {
     error,
   } = useComponentsByType(tipo);
 
-  console.log(`Tipo: ${tipo}`)
-  console.log(result?.data)
-
   const elements: Peca[] = result?.data || [];
 
   const createLabels = () => {

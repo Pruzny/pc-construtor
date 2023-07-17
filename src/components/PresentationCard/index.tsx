@@ -3,7 +3,6 @@ import "./styles.css"
 import { ComponentInfo } from "../../models/ComponentInfo";
 
 const PresentationCard = ({name, raw, isRequired, description, icon}: ComponentInfo) => {
-  console.log(`assets/img/icons/${icon.replace(" ", "")}.png`)
   return (
     <>
       <div className="col-12 col-md-6 col-lg-4 mb-4">
