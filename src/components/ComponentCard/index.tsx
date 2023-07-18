@@ -37,9 +37,9 @@ const ComponentCard = ({component}: Props) => {
         </div>
         <div className="card-body d-flex flex-column">
           <h4 className="card-title fw-bold">
-            <h4 className="fw-bold text-secondary">
+            <p className="fw-bold text-secondary">
               ID: {component.id}
-            </h4>
+            </p>
             <span className="col-6">
               {component.nome.toUpperCase()}
             </span>

@@ -35,21 +35,21 @@ const Builder = () => {
 
     if (isLoading) {
       for (let i = 0; i < 3; i++) {
-        content.push(<ComponentCard component={null}/>);
+        content.push(<ComponentCard key={`placeholder-${i}`} component={null}/>);
       }
     } else if (elements.length > 0) {
-      elements.forEach((element) => {
-        content.push(<ComponentCard component={element} />);
+      elements.forEach((element, index) => {
+        content.push(<ComponentCard key={`component-card-${index}`} component={element} />);
       });
     } else if (tipo === "") {
       content.push(
-        <h2>
+        <h2 key={"no-selected-text"}>
           Selecione um tipo de peça.
         </h2>
       );
     } else {
       content.push(
-        <h2>
+        <h2 key={"no-component-text"}>
           Nenhuma peça desse tipo foi encontrada.
         </h2>
       );

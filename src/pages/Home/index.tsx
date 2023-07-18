@@ -29,8 +29,8 @@ export default Home;
 
 const createCards = () => {
   const cards: JSX.Element[] = [];
-  componentInfos.forEach((card) => {
-    cards.push(<PresentationCard name={card.name} raw={card.raw} isRequired={card.isRequired} description={card.description} icon={card.icon} />);
+  componentInfos.forEach((card, index) => {
+    cards.push(<PresentationCard name={card.name} raw={card.raw} isRequired={card.isRequired} description={card.description} icon={card.icon} key={`home-card-${index}`}/>);
   });
   return cards;
 }
