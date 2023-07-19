@@ -1,0 +1,15 @@
+.component-form {
+  width: 100px;
+}
+
+.component-form select {
+  font-size: 20px;
+}
+
+.build-label {
+  width: 200px;
+}
+
+.form-icon {
+  height: 100px;
+}
