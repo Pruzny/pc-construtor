@@ -6,14 +6,16 @@ import { componentInfos } from "../../constants";
 import Montagem from "../../models/Montagem";
 import useCreateBuild from "../../hooks/useCreateBuild";
 import ComponentForm from "../../components/ComponentForm";
-import { redirect, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Peca from "../../models/Peca";
+import BuildTable from "../../components/BuildTable";
+import useBuilds from "../../hooks/useBuilds";
+import useDeleteBuild from "../../hooks/useDeleteBuild";
 
 const schema = z.object(
   Object.fromEntries(
     [
       ["name", z.string().min(1, { message: "O nome deve ser informado." })],
-      ["user", z.string().min(1, { message: "O usuário deve ser informado." })],
       ...componentInfos.map((component) => [
         component.raw,
         component.isRequired
@@ -51,6 +53,20 @@ const Profile = () => {
 
   const createBuild = useCreateBuild();
 
+  const deleteBuild = useDeleteBuild();
+
+  const handleDeleteBuild = (id: number) => {
+    deleteBuild.mutate(id);
+    // TODO reset page
+  }
+
+  const {
+    data: result,
+    isLoading,
+    error,
+  } = useBuilds();
+  // TODO change to useBuildPageByUser
+
   const {
     register,
     handleSubmit,
@@ -60,13 +76,12 @@ const Profile = () => {
 
   const onSubmit = ({
     name,
-    user,
   }: FieldValues) => {
     console.log(selectedIds);
     const build: Montagem = {
       nome: name as string,
       usuario: {
-        id: parseInt(user as string),
+        id: parseInt(usuarioId),
         nome: "",
         email: "",
         senha: "",
@@ -81,7 +96,7 @@ const Profile = () => {
       coolerProcessador: selectedIds["cooler-cpu"] === "" ? undefined : pseudoComponent(parseInt(selectedIds["cooler-cpu"])),
       coolerGabinete: selectedIds["fan"] === "" ? undefined : pseudoComponent(parseInt(selectedIds["fan"])),
     }
-    // reset();
+    reset();
     createBuild.mutate(build);
     console.log(build);
   }
@@ -94,11 +109,31 @@ const Profile = () => {
     return forms;
   }
 
+  const createTable = () => {
+    if (isLoading) {
+      return (
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Ícone Carregando</span>
+        </div>
+      );
+    }
+
+    if (!result) {
+      throw error;
+    }
+
+    return (
+      <div className="m-4">
+        <BuildTable builds={result.data} onDeleteBuild={handleDeleteBuild} userId={usuarioId}/>
+      </div>
+    );
+  }
+
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className="container d-flex flex-column justify-content-center p-5 bg-secondary-subtle rounded-3 mb-4 mt-4">
         <div className="row col-8 align-self-center justify-content-around">
-          <div className="form-outline col-12 col-md-6 col-xl-7 bg-dark p-0 rounded mb-4">
+          <div className="form-outline col-12 bg-dark p-0 rounded mb-4">
             <label className="form-label fw-bold text-white bg-dark bg-gradient rounded p-2 w-100" form="build-name">
               Nome da montagem:
             </label>
@@ -114,23 +149,6 @@ const Profile = () => {
               {errors["name"]?.message as string}
             </div>
           </div>
-
-          <div className="form-outline col-12 col-md-5 col-xl-4 bg-dark p-0 rounded mb-4">
-            <label className="form-label fw-bold text-white bg-dark bg-gradient rounded p-2 w-100" form="build-user">
-              ID do usuário montador:
-            </label>
-            <div className={`m-2 ${errors["user"] ? "is-invalid" : ""}`}>
-              <input
-                {...register("user")}
-                type="number"
-                id="build-user"
-                className="form-control fw-semibold"
-              />
-            </div>
-            <div className="invalid-feedback p-2 pt-0">
-              {errors["user"]?.message as string}
-            </div>
-          </div>
           
           {createForms()}
 
@@ -141,6 +159,9 @@ const Profile = () => {
           </div>
         </div>
       </form>
+
+      {createTable()}
+      
     </>
   );
 }
