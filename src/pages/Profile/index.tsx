@@ -14,6 +14,7 @@ import { useState } from "react";
 import useBuildPage from "../../hooks/useBuildPage";
 import Pagination from "../../components/Pagination";
 import SearchBar from "../../components/SearchBar";
+import "./styles.css"
 
 const schema = z.object(
   Object.fromEntries(
@@ -137,7 +138,23 @@ const Profile = () => {
 
   return (
     <>
+      <div className="toast position-fixed show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div className="toast-header">
+          <strong className="me-auto">Sucesso!</strong>
+          <small>
+            Login
+          </small>
+          <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close" />
+        </div>
+        <div className="toast-body">
+          Usuário {usuarioId} logado com sucesso!
+        </div>
+      </div>
+
       <form onSubmit={handleSubmit(onSubmit)} className="container d-flex flex-column justify-content-center p-5 bg-secondary-subtle rounded-3 mb-4 mt-4">
+        <h2 className="mb-5">
+          Nova montagem
+        </h2>
         <div className="row col-8 align-self-center justify-content-around">
           <div className="form-outline col-12 bg-dark p-0 rounded mb-4">
             <label className="form-label fw-bold text-white bg-dark bg-gradient rounded p-2 w-100" form="build-name">
@@ -176,7 +193,6 @@ const Profile = () => {
         <BuildTable builds={result.itens} onDeleteBuild={handleDeleteBuild} userId={usuarioId}/>
         <Pagination page={page} totalPages={result.totalDePaginas} onPageChange={handlePageChange} />
       </div>
-      
     </>
   );
 }
