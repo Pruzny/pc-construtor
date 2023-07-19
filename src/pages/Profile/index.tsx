@@ -11,6 +11,9 @@ import Peca from "../../models/Peca";
 import BuildTable from "../../components/BuildTable";
 import useBuilds from "../../hooks/useBuilds";
 import useDeleteBuild from "../../hooks/useDeleteBuild";
+import { useState } from "react";
+import useBuildPage from "../../hooks/useBuildPage";
+import Pagination from "../../components/Pagination";
 
 const schema = z.object(
   Object.fromEntries(
@@ -47,6 +50,9 @@ componentInfos.forEach((component) => {
 
 
 const Profile = () => {
+  const [page, setPage] = useState(0);
+  const [buildName, setBuildName] = useState("");
+
   const {
     usuarioId = "",
   } = useParams<{usuarioId: string}>();
@@ -57,15 +63,18 @@ const Profile = () => {
 
   const handleDeleteBuild = (id: number) => {
     deleteBuild.mutate(id);
-    // TODO reset page
+    setPage(0);
+  }
+
+  const handlePageChange = (page: number) => {
+    setPage(page);
   }
 
   const {
     data: result,
     isLoading,
     error,
-  } = useBuilds();
-  // TODO change to useBuildPageByUser
+  } = useBuildPage({userId: parseInt(usuarioId), page: page, buildName: buildName, size: 3});
 
   const {
     register,
@@ -108,25 +117,17 @@ const Profile = () => {
     });
     return forms;
   }
-
-  const createTable = () => {
-    if (isLoading) {
-      return (
-        <div className="spinner-border" role="status">
-          <span className="visually-hidden">Ícone Carregando</span>
-        </div>
-      );
-    }
-
-    if (!result) {
-      throw error;
-    }
-
+  
+  if (isLoading) {
     return (
-      <div className="m-4">
-        <BuildTable builds={result.data} onDeleteBuild={handleDeleteBuild} userId={usuarioId}/>
+      <div className="spinner-border" role="status">
+        <span className="visually-hidden">Ícone Carregando</span>
       </div>
     );
+  }
+
+  if (!result) {
+    throw error;
   }
 
   return (
@@ -160,7 +161,10 @@ const Profile = () => {
         </div>
       </form>
 
-      {createTable()}
+      <div className="m-4">
+        <BuildTable builds={result!.itens} onDeleteBuild={handleDeleteBuild} userId={usuarioId}/>
+        <Pagination page={page} totalPages={result!.totalDePaginas} onPageChange={handlePageChange} />
+      </div>
       
     </>
   );

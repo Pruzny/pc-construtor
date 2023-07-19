@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
-import ResultPage from "../models/ResultPage";
+import ResultadoPaginado from "../models/ResultPage";
 
 class GenericApi<T> {
   static axiosInstance = axios.create({
@@ -20,7 +20,7 @@ class GenericApi<T> {
 
   getAll = () => GenericApi.axiosInstance.get<T[]>(this.endpoint);
 
-  getPage = (config: AxiosRequestConfig) => GenericApi.axiosInstance.get<ResultPage<T>>(`${this.endpoint}/paginacao`, config);
+  getPage = (config: AxiosRequestConfig) => GenericApi.axiosInstance.get<ResultadoPaginado<T>>(`${this.endpoint}/paginacao`, config).then((response) => response.data);
 
   getParam = (param: string, config: AxiosRequestConfig) => GenericApi.axiosInstance.get<T[]>(`${this.endpoint}/${param}`, config);
 
