@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
-import ResultadoPaginado from "../models/ResultPage";
+import ResultadoPaginado from "../models/ResultadoPaginado";
 
 class GenericApi<T> {
   static axiosInstance = axios.create({
