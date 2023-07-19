@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import "./styles.css";
-import { FieldValues, useForm } from "react-hook-form";
+import { FieldValues, set, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import useUser from "../../hooks/useUser";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRotateLeft } from "@fortawesome/free-solid-svg-icons";
 
 const schema = z.object({
   email: z.string().min(1, { message: "O email deve ser informado." }),
@@ -17,6 +19,7 @@ const Login = () => {
   const [hasQuery, setHasQuery] = useState(false);
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
+  const [canLogin, setCanLogin] = useState(true);
 
   const {
     register,
@@ -38,13 +41,39 @@ const Login = () => {
     if (!hasQuery) {
       return <></>;
     } else if (isLoading) {
-      return <h2>Carregando...</h2>;
+      return (
+        <>
+          <div className="spinner-border" role="status">
+            <span className="visually-hidden">Ícone Carregando</span>
+          </div>
+        </>
+      );
     } else if (!result?.data || result?.data.length === 0) {
       return <h2>Usuário inválido!</h2>;
     } else {
-      return <h2>{`ID do usuário: ${result.data[0].id!}`}</h2>;
+      return (
+          <Link to={`/perfil/${result.data[0].id!}`}>
+            <button className="btn btn-primary btn-lg ms-2 mb-4">
+                Ver montagens
+            </button>
+          </Link>
+      );
     }
   };
+
+  const resetButton = () => {
+    if (canLogin) {
+      return <></>
+    }
+
+    return (
+      <>
+        <button className="btn btn-primary btn-lg ms-2 mb-4" onClick={() => setCanLogin(true)}>
+          <FontAwesomeIcon icon={faArrowRotateLeft} />
+        </button>
+      </>
+    );
+  }
 
   return (
     <>
@@ -87,10 +116,11 @@ const Login = () => {
                         </div>
                       </div>
 
-                      <div className="d-flex justify-content-center">
-                        <button type="submit" className="btn btn-primary btn-lg mb-4">
+                      <div className="d-flex flex-row justify-content-center">
+                        <button type="submit" className={`btn btn-primary btn-lg mb-4 ${!canLogin ? "disabled" : ""}`} onClick={() => setCanLogin(false)}>
                           Login
                         </button>
+                        {resetButton()}
                       </div>
                     </form>
 

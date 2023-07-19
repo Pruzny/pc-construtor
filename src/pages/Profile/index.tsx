@@ -6,7 +6,7 @@ import { componentInfos } from "../../constants";
 import Montagem from "../../models/Montagem";
 import useCreateBuild from "../../hooks/useCreateBuild";
 import ComponentForm from "../../components/ComponentForm";
-import { redirect } from "react-router-dom";
+import { redirect, useParams } from "react-router-dom";
 import Peca from "../../models/Peca";
 
 const schema = z.object(
@@ -45,6 +45,10 @@ componentInfos.forEach((component) => {
 
 
 const Profile = () => {
+  const {
+    usuarioId = "",
+  } = useParams<{usuarioId: string}>();
+
   const createBuild = useCreateBuild();
 
   const {
