@@ -1,6 +1,8 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { componentInfos } from "../../constants";
 import Montagem from "../../models/Montagem";
 import "./styles.css";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
   builds: Montagem[];
@@ -61,8 +63,10 @@ const BuildTable = ({builds, onDeleteBuild, userId}: Props) => {
                 <td width="7%" className="align-middle text-center">{build.placaDeVideo.id}</td>
                 <td width="7%" className="align-middle text-center">{build.coolerProcessador ? build.coolerProcessador.id : "-"}</td>
                 <td width="7%" className="align-middle text-center">{build.coolerGabinete ? build.coolerGabinete.id : "-"}</td>
-                <td width="10%" className="align-middle text-center">
-                  <button className="btn btn-danger w-100 h-100" onClick={() => onDeleteBuild(build.id!)}>Excluir</button>
+                <td width="4%" className="align-middle text-center">
+                  <button className="btn btn-danger w-100 h-100" onClick={() => onDeleteBuild(build.id!)} data-bs-toggle="tooltip" data-bs-placement="top" title="Excluir">
+                    <FontAwesomeIcon icon={faTrash} />
+                  </button>
                 </td>
               </tr>
             );

@@ -26,7 +26,7 @@ const SearchBar = ({text, onChangeText}: Props) => {
           aria-label="Search"
           defaultValue={text}
         />
-        <button className="btn btn-outline-primary" type="submit">
+        <button className="btn btn-outline-primary" type="submit" data-bs-toggle="tooltip" data-bs-placement="top" title="Pesquisar">
           <FontAwesomeIcon icon={faSearch} />
         </button>
       </form>

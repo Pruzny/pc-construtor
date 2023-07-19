@@ -1,3 +1,6 @@
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 interface Props {
   page: number;
   totalPages: number;
@@ -30,14 +33,14 @@ const Pagination = ({page, totalPages, onPageChange}: Props) => {
       <nav aria-label="Page navigation example">
         <ul className="pagination justify-content-center">
           <li className={`page-item ${page === 0 ? "disabled" : ""}`}>
-            <button className="page-link" onClick={() => onPageChange(page - 1)}>
-              Anterior
+            <button className="page-link" onClick={() => onPageChange(page - 1)} data-bs-toggle="tooltip" data-bs-placement="top" title="Anterior">
+              <FontAwesomeIcon icon={faAngleLeft} />
             </button>
           </li>
           {createButtons()}
           <li className={`page-item ${page === totalPages - 1 ? "disabled" : ""}`}>
-            <button className="page-link" onClick={() => onPageChange(page + 1)}>
-              Próxima
+            <button className="page-link" onClick={() => onPageChange(page + 1)} data-bs-toggle="tooltip" data-bs-placement="top" title="Próxima">
+              <FontAwesomeIcon icon={faAngleRight} />
             </button>
           </li>
         </ul>
