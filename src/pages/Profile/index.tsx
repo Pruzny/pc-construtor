@@ -9,11 +9,11 @@ import ComponentForm from "../../components/ComponentForm";
 import { useParams } from "react-router-dom";
 import Peca from "../../models/Peca";
 import BuildTable from "../../components/BuildTable";
-import useBuilds from "../../hooks/useBuilds";
 import useDeleteBuild from "../../hooks/useDeleteBuild";
 import { useState } from "react";
 import useBuildPage from "../../hooks/useBuildPage";
 import Pagination from "../../components/Pagination";
+import SearchBar from "../../components/SearchBar";
 
 const schema = z.object(
   Object.fromEntries(
@@ -70,6 +70,11 @@ const Profile = () => {
     setPage(page);
   }
 
+  const handleNameChange = (name: string) => {
+    setBuildName(name);
+    setPage(0);
+  }
+
   const {
     data: result,
     isLoading,
@@ -117,7 +122,7 @@ const Profile = () => {
     });
     return forms;
   }
-  
+
   if (isLoading) {
     return (
       <div className="spinner-border" role="status">
@@ -162,8 +167,14 @@ const Profile = () => {
       </form>
 
       <div className="m-4">
-        <BuildTable builds={result!.itens} onDeleteBuild={handleDeleteBuild} userId={usuarioId}/>
-        <Pagination page={page} totalPages={result!.totalDePaginas} onPageChange={handlePageChange} />
+        <div className="border border-dark rounded-top p-4">
+          <h3 className="text-start fw-bold">
+            Pesquisar
+          </h3>
+          <SearchBar text={buildName} onChangeText={handleNameChange} />
+        </div>
+        <BuildTable builds={result.itens} onDeleteBuild={handleDeleteBuild} userId={usuarioId}/>
+        <Pagination page={page} totalPages={result.totalDePaginas} onPageChange={handlePageChange} />
       </div>
       
     </>
