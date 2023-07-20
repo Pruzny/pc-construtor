@@ -3,6 +3,7 @@ import { componentInfos } from "../../constants";
 import Montagem from "../../models/Montagem";
 import "./styles.css";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import buildPrice from "../../util/buildPrice";
 
 interface Props {
   builds: Montagem[];
@@ -11,36 +12,38 @@ interface Props {
 }
 
 const BuildTable = ({builds, onDeleteBuild, userId}: Props) => {
-    const createLabels = () => {
-      const content: JSX.Element[] = [];
+  const createLabels = () => {
+    const content: JSX.Element[] = [];
 
+    content.push(
+      <th key="table-label-id" className="align-middle text-center">ID</th>
+    );
+    content.push(
+      <th key="table-label-name" className="align-middle text-center">Nome</th>
+    );
+    content.push(
+      <th key="table-label-name" className="align-middle text-center">Preço</th>
+    );
+
+    componentInfos.forEach((component) => {
       content.push(
-        <th key="table-label-id" className="align-middle text-center">ID</th>
+        <th key={`table-label-${component.raw}`} scope="col" className="align-middle text-center">{component.name}</th>
       );
-      content.push(
-        <th key="table-label-name" className="align-middle text-center">Nome</th>
-      );
+    });
 
-      componentInfos.forEach((component) => {
-        content.push(
-          <th key={`table-label-${component.raw}`} scope="col">{component.name}</th>
-        );
-      });
+    content.push(
+      <th key="table-label-action" className="align-middle text-center">Ação</th>
+    );
 
-      content.push(
-        <th key="table-label-action" className="align-middle text-center">Ação</th>
-      );
-
-      return content;
-    }
+    return content;
+  }
 
   return (
     <>
       <table className="table table-responsive table-bordered table-hover table-sm">
         <thead className="table-dark">
           <tr>
-            {/* Title cell that spans all columns */}
-            <th colSpan={componentInfos.length + 3} className="text-center table-title">
+            <th colSpan={componentInfos.length + 4} className="text-center table-title">
               Montagens do usuário {userId}:
             </th>
           </tr>
@@ -50,10 +53,17 @@ const BuildTable = ({builds, onDeleteBuild, userId}: Props) => {
         </thead>
         <tbody>
           {builds.map((build) => {
+            const price = buildPrice(build).toLocaleString("pt-BR", {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+              useGrouping: true,
+            });
+
             return (
               <tr key={`build-table-row-${build.id!}`}>
                 <td width="7%" className="align-middle text-center fw-bold">{build.id}</td>
-                <td width="20%" className="align-middle text-center fw-semibold">{build.nome}</td>
+                <td width="15%" className="align-middle text-center fw-semibold">{build.nome}</td>
+                <td width="11%" className="align-middle text-center text-success fw-semibold">R$ {price}</td>
                 <td width="7%" className="align-middle text-center">{build.gabinete.id}</td>
                 <td width="7%" className="align-middle text-center">{build.fonte.id}</td>
                 <td width="7%" className="align-middle text-center">{build.placaMae.id}</td>
