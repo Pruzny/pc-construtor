@@ -64,15 +64,15 @@ const BuildTable = ({builds, onDeleteBuild, userId}: Props) => {
                 <td width="7%" className="align-middle text-center fw-bold">{build.id}</td>
                 <td width="15%" className="align-middle text-center fw-semibold">{build.nome}</td>
                 <td width="11%" className="align-middle text-center text-success fw-semibold">R$ {price}</td>
-                <td width="7%" className="align-middle text-center">{build.gabinete.id}</td>
-                <td width="7%" className="align-middle text-center">{build.fonte.id}</td>
-                <td width="7%" className="align-middle text-center">{build.placaMae.id}</td>
-                <td width="7%" className="align-middle text-center">{build.processador.id}</td>
-                <td width="7%" className="align-middle text-center">{build.memoriaRam.id}</td>
-                <td width="7%" className="align-middle text-center">{build.armazenamento.id}</td>
-                <td width="7%" className="align-middle text-center">{build.placaDeVideo.id}</td>
-                <td width="7%" className="align-middle text-center">{build.coolerProcessador ? build.coolerProcessador.id : "-"}</td>
-                <td width="7%" className="align-middle text-center">{build.coolerGabinete ? build.coolerGabinete.id : "-"}</td>
+                <td width="7%" className="align-middle text-center">{build.gabinete.nome}</td>
+                <td width="7%" className="align-middle text-center">{build.fonte.nome}</td>
+                <td width="7%" className="align-middle text-center">{build.placaMae.nome}</td>
+                <td width="7%" className="align-middle text-center">{build.processador.nome}</td>
+                <td width="7%" className="align-middle text-center">{build.memoriaRam.nome}</td>
+                <td width="7%" className="align-middle text-center">{build.armazenamento.nome}</td>
+                <td width="7%" className="align-middle text-center">{build.placaDeVideo.nome}</td>
+                <td width="7%" className="align-middle text-center">{build.coolerProcessador ? build.coolerProcessador.nome : "-"}</td>
+                <td width="7%" className="align-middle text-center">{build.coolerGabinete ? build.coolerGabinete.nome : "-"}</td>
                 <td width="4%" className="align-middle text-center">
                   <button className="btn btn-danger w-100 h-100" onClick={() => onDeleteBuild(build.id!)} data-bs-toggle="tooltip" data-bs-placement="top" title="Excluir">
                     <FontAwesomeIcon icon={faTrash} />
